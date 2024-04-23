@@ -1,0 +1,468 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>IoT ActiveLife For You</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="./index.html">
+            <span>
+             IoT Active Life
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="feature.html">FEATURE</a>
+                <a href="contact.html">CONTACT US</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="d-flex justify-content-center mb-4">
+        <h2>Contact Us</h2>
+      </div>
+  
+  
+      <!-- Botón para mostrar el formulario de contacto -->
+      <div class="text-center">
+        <button id="mostrarFormulario">Contactar</button>
+      </div>
+  
+  
+      <!-- Formulario de contacto (inicialmente oculto) -->
+      <div id="contacto" class="mt-4" style="display: none;">
+        <form action="" method="post">
+          <div class="contact_form-container">
+            <div>
+              <input type="email" name="email_origen" placeholder="De:" required>
+            </div>
+            <div>
+              <input type="email" name="email_destino" placeholder="Para:" required>
+            </div>
+            <div class="mt-4">
+              <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+            </div>
+            <div class="mt-4 text-center">
+              <input type="submit" value="ENVIAR">
+            </div>
+          </div>
+        </form>
+      </div>
+  
+  
+      <!-- Imagen adicional -->
+      <div class="contact_img-box text-center mt-4">
+        <img src="../images/img3.png" alt="Imagen de contacto" class="img-fluid">
+      </div>
+    </div>
+  
+  
+    <script>
+      document.getElementById('mostrarFormulario').addEventListener('click', function () {
+        document.getElementById('contacto').style.display = 'block'; // Mostrar el formulario al hacer clic en el botón
+        this.style.display = 'none'; // Ocultar el botón después de mostrar el formulario
+      });
+    </script>
+  </section>
+
+  <!-- end contact section -->
+  <!-- info section -->
+  <section class="info_section layout_padding-top">
+    <div class="info_logo-box">
+      <h2>
+        IoTActiveLife
+      </h2>
+    </div>
+    <div class="container layout_padding2">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Sobre nosotros
+          </h5>
+          <p>
+            IoTActiveLife: Tu seguridad, nuestra prioridad. Información en tiempo real para una
+            comunidad más
+            saludable.
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Usar el link
+          </h5>
+          <ul>
+            <li>
+              <a href="https://www.apple.com/app-store/ ">
+                App Store
+              </a>
+            </li>
+            <li>
+              <a href="https://play.google.com/store/games?hl=en&gl=US ">
+                Play Store
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Contactar con nosotros
+          </h5>
+          <p>
+            ¡Conéctate con IoT Active! ¿Tienes preguntas o comentarios? Contáctanos en
+            maitane.garcia02@opendeusto.es.
+            ¡Tu opinión es importante!
+          </p>
+        </div>
+        <div class="col-md-3">
+
+          <div class="subscribe_container">
+            <h5>
+              Boletín informativo
+            </h5>
+            <div class="form_container">
+              <form action="">
+                <input type="email" placeholder="Meter el email">
+                <button type="submit">
+                  Subscribirse
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="social_container">
+
+        <div class="social-box">
+          <a href="">
+            <img src="../images/fb.png" alt="">
+          </a>
+
+          <a href="">
+            <img src="../images/twitter.png" alt="">
+          </a>
+          <a href="">
+            <img src="../images/linkedin.png" alt="">
+          </a>
+          <a href="">
+            <img src="../images/instagram.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
+  <!--LOGIN AND RESGITRO JS-->
+  <script type="text/javascript" src="../js/script.js"></script>
+  <!--main:index.js-->
+  <script type="module" src="../index.js"></script>
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width");
+      document
+        .querySelector(".custom_menu-btn")
+        .classList.toggle("menu_btn-style");
+    }
+  </script>
+
+
+  </div>
+</body>
+
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>IoT ActiveLife For You</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="./index.html">
+            <span>
+             IoT Active Life
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="feature.html">FEATURE</a>
+                <a href="contact.html">CONTACT US</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="d-flex justify-content-center mb-4">
+        <h2>Contact Us</h2>
+      </div>
+  
+  
+      <!-- Botón para mostrar el formulario de contacto -->
+      <div class="text-center">
+        <button id="mostrarFormulario">Contactar</button>
+      </div>
+  
+  
+      <!-- Formulario de contacto (inicialmente oculto) -->
+      <div id="contacto" class="mt-4" style="display: none;">
+        <form action="" method="post">
+          <div class="contact_form-container">
+            <div>
+              <input type="email" name="email_origen" placeholder="De:" required>
+            </div>
+            <div>
+              <input type="email" name="email_destino" placeholder="Para:" required>
+            </div>
+            <div class="mt-4">
+              <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+            </div>
+            <div class="mt-4 text-center">
+              <input type="submit" value="ENVIAR">
+            </div>
+          </div>
+        </form>
+      </div>
+  
+  
+      <!-- Imagen adicional -->
+      <div class="contact_img-box text-center mt-4">
+        <img src="../images/img3.png" alt="Imagen de contacto" class="img-fluid">
+      </div>
+    </div>
+  
+  
+    <script>
+      document.getElementById('mostrarFormulario').addEventListener('click', function () {
+        document.getElementById('contacto').style.display = 'block'; // Mostrar el formulario al hacer clic en el botón
+        this.style.display = 'none'; // Ocultar el botón después de mostrar el formulario
+      });
+    </script>
+  </section>
+
+  <!-- end contact section -->
+  <!-- info section -->
+  <section class="info_section layout_padding-top">
+    <div class="info_logo-box">
+      <h2>
+        IoTActiveLife
+      </h2>
+    </div>
+    <div class="container layout_padding2">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Sobre nosotros
+          </h5>
+          <p>
+            IoTActiveLife: Tu seguridad, nuestra prioridad. Información en tiempo real para una
+            comunidad más
+            saludable.
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Usar el link
+          </h5>
+          <ul>
+            <li>
+              <a href="https://www.apple.com/app-store/ ">
+                App Store
+              </a>
+            </li>
+            <li>
+              <a href="https://play.google.com/store/games?hl=en&gl=US ">
+                Play Store
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Contactar con nosotros
+          </h5>
+          <p>
+            ¡Conéctate con IoT Active! ¿Tienes preguntas o comentarios? Contáctanos en
+            maitane.garcia02@opendeusto.es.
+            ¡Tu opinión es importante!
+          </p>
+        </div>
+        <div class="col-md-3">
+
+          <div class="subscribe_container">
+            <h5>
+              Boletín informativo
+            </h5>
+            <div class="form_container">
+              <form action="">
+                <input type="email" placeholder="Meter el email">
+                <button type="submit">
+                  Subscribirse
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="social_container">
+
+        <div class="social-box">
+          <a href="">
+            <img src="../images/fb.png" alt="">
+          </a>
+
+          <a href="">
+            <img src="../images/twitter.png" alt="">
+          </a>
+          <a href="">
+            <img src="../images/linkedin.png" alt="">
+          </a>
+          <a href="">
+            <img src="../images/instagram.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
+  <!--LOGIN AND RESGITRO JS-->
+  <script type="text/javascript" src="../js/script.js"></script>
+  <!--main:index.js-->
+  <script type="module" src="../index.js"></script>
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width");
+      document
+        .querySelector(".custom_menu-btn")
+        .classList.toggle("menu_btn-style");
+    }
+  </script>
+
+
+  </div>
+</body>
+
+>>>>>>> 09a89df851a0aa9aaea4ac96a8a97e744e91a87e
+</html>

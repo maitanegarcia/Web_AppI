@@ -1,0 +1,2226 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>IoT ActiveLife For You</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="../css/style_init.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+
+<body >
+  <div class="hero_area" class="desktop" class="tablet" class="movil">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="../Pagina_Principal.html">
+            <span>
+              IoT ActiveLife
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="../index.html">SALIR</a>
+                <a href="../Pagina_Principal.html">PAGINA PRINCIPAL</a>
+                <a href="./views/Temperatura_humedad.html">INFORMACIÓN SOBRE LA TEMPERATURA/HUMEDAD</a>
+                <a href="../views/Calidad_aire.html">CALIDAD DEL AIRE</a>
+                <a href="../Calculadora_Salud.html">CALCULADORA SALUD</a>
+                <a href="./views/Rutas.html">RUTAS</a>
+                <a href="../Ejercicios.html">EJERCICIOS Y RUTINAS</a>
+                <a href="../Recetas_Saludables_Sostenibles.html">RECETAS SALUDABLES Y SOSTENIBLES</a>
+                <a href="../views/">MÁS INFORMACIÓN</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <section class="slider_section position-relative">
+      <div class="container" id="container">
+        <div class="row">
+          <h2>Secciones de IoT Active Life</h2>
+          <div class="secciones-container">
+            <div class="seccion">
+              <img src="../images/temp_hum.png" alt="Temperatura">
+              <div class="contenido">
+
+                <p>Temperatura y humedad en tiempo real</p>
+                <button onclick="irASeccion('#temp_hum')">Temperatura/Humedad</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/calidad.png" alt="Calidad">
+              <div class="contenido">
+
+                <p>Medimos la calidad del aire</p>
+                <button onclick="irASeccion('#calidad')">Calidad del aire</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/rutas.png" alt="Culturismo">
+              <div class="contenido">
+
+                <p>¿Por donde te apetece hacer deporte hoy?</p>
+                <button onclick="irASeccion('#rutas')">Rutas/Caminos</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/rutinas.png" alt="TRX">
+              <div class="contenido">
+
+                <p>Rutinas con cuerdas para entrenamiento funcional.</p>
+                <button onclick="irASeccion('#trx')">Rutinas/Ejercicios</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/recetas.png" alt="Remo">
+              <div class="contenido">
+
+                <p>Recetas sostenibles y saludables </p>
+                <button onclick="irASeccion('#recetas')">Recetas</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/info.png" alt="Clases adicionales">
+              <div class="contenido">
+
+                <p>Sección especial del proceso del TFG</p>
+                <button onclick="irASeccion('#clases_adicionales')">Información</button>
+              </div>
+            </div>
+          </div>
+
+
+          <script>
+            function irASeccion(seccion) {
+              window.location.href = seccion; // Esto te lleva a la sección correspondiente
+            }
+          </script>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <!--INFORMACION SOBRE LA TEMPERATURA Y HUMEDAD -->
+    <!--
+    CONECTAR CON LA RASPBERRY PI
+    -HUMEDAD
+    -TEMPERATURA
+    CONECTAR CON EL ATMOTUBE-PRO
+    GRAFICAS
+    TDOD EL TIEMPO REAL
+--->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin" id="temp_hum">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            TEMPERATURA Y HUMEDAD <br />
+          </h2>
+        </div>
+      </div>
+      <div class=datos_humedad/temepratura>
+        <div id="weather-info">
+          <h2>Información Meteorológica</h2>
+          <p><strong>Temperatura:</strong> <span id="temperature"></span> &deg;C</p>
+          <p><strong>Humedad:</strong> <span id="humidity"></span>%</p>
+          <p><strong>Posibilidad de Lluvia:</strong> <span id="chance-of-rain"></span>%</p>
+          <p><strong>Salida del Sol:</strong> <span id="sunrise"></span></p>
+          <p><strong>Puesta del Sol:</strong> <span id="sunset"></span></p>
+        </div>
+        <script type="text/javascript" src="../js/script.js"></script>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <a href="https://www.eltiempo.es/bilbao.html">
+          METEOROLOGÍA & SOSTENIBILIDAD
+        </a>
+      </div>
+    </section>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- end iNFORMACION Y HUMEDAD -->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---METER UN APARTADO PARA EL RITMO CARDICAO DEPENDIENDO DE LA VELOCIDAD A LA QUE VAYA-->
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <!--INFORMACION CALIDAD DEL AIRE -->
+    <!--
+    CONECTAR CON LA RASPBERRY PI
+    -CALIDAD
+    CONECTAR CON EL ATMOTUBE-PRO
+    GRAFICAS
+    TODO EN TIEMPO REAL-->
+
+
+    <!--pasos a seguir
+    Conexión con la Raspberry Pi para obtener datos sobre la calidad del aire:
+
+      Debes configurar tu Raspberry Pi para que recolecte y proporcione datos sobre la calidad del aire. Esto podría implicar el uso de sensores de calidad del aire y un software para recopilar y procesar los datos.
+    Una vez que tengas los datos disponibles en la Raspberry Pi, puedes crear una API en la Raspberry Pi que exponga estos datos de alguna manera. 
+    Esto podría ser a través de una API web o de otro protocolo de comunicación.
+     tu página web, puedes hacer solicitudes a esta API de la Raspberry Pi para obtener los datos en tiempo real y mostrarlos en tu página web.
+    Conexión con Atmotube PRO para mostrar gráficas en tiempo real:
+
+    Debes configurar tu Atmotube PRO para que proporcione datos en tiempo real a través de su API.
+        Puedes usar JavaScript para hacer solicitudes a la API de Atmotube PRO y obtener los datos necesarios para tus gráficas.
+       una biblioteca de gráficos como Chart.js, D3.js, o cualquier otra, para crear las gráficas y mostrar los datos en tiempo real en tu página web.
+        -->
+    <!--AÑADIR EL MAPA
+  
+
+Inicia sesión en ThingsBoard: Accede a tu panel de ThingsBoard utilizando tus credenciales.
+
+Navega a la pestaña de Dashboards: Una vez que hayas iniciado sesión, ve a la pestaña de Dashboards en el menú de navegación.
+
+Crea o selecciona un Dashboard: Puedes crear un nuevo dashboard o seleccionar uno existente en el que desees agregar el mapa.
+
+Añade un nuevo widget de mapa: Haz clic en el botón de "Add new widget" o "Añadir nuevo widget" (dependiendo de la interfaz de usuario de tu versión de ThingsBoard). Selecciona el tipo de widget de mapa. ThingsBoard ofrece varios tipos de widgets de mapa, como Mapa, Mapa de calor, Marcadores, etc. Selecciona el que mejor se adapte a tus necesidades.
+
+Configura el widget de mapa: Una vez agregado el widget de mapa, configúralo según tus preferencias. Puedes personalizar el centro del mapa, el nivel de zoom, los marcadores, el estilo del mapa, etc.
+
+Conecta los datos del mapa: En la configuración del widget de mapa, puedes seleccionar los datos que deseas mostrar en el mapa. Dependiendo de cómo hayas configurado tus dispositivos en ThingsBoard y qué datos estén disponibles, podrás mostrar datos como la ubicación de los dispositivos en el mapa, el estado de los sensores, etc.
+
+Guarda el dashboard: Una vez que hayas configurado el widget de mapa según tus preferencias, guarda los cambios en el dashboard.
+
+Visualiza el dashboard: Ahora puedes visualizar el dashboard para ver el mapa que has añadido con los datos correspondientes.
+
+Siguiendo estos pasos, podrás agregar un mapa a través de ThingsBoard y visualizar los datos que desees en él. Recuerda que la disponibilidad y funcionalidad exacta de los widgets pueden variar dependiendo de la versión específica de ThingsBoard que estés utilizando.-->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin" id="calidad">
+      <div class="container">
+        <div class="heading_container">
+          <h2>MAPA DE CALIDAD DEL AIRE</h2>
+        </div>
+      </div>
+
+
+      <div class="calidad_aire">
+        <h2>Información Calidad del aire</h2>
+        <p><strong>Calidad del aire:</strong> </p>
+        <!-- Indicador mientras carga -->
+      </div>
+
+
+      <!-- Mapa de Leaflet.js -->
+      <div id="map" style="height: 300px; width: 100%;"></div> <!-- Contenedor para el mapa -->
+
+
+      <div class="d-flex justify-content-center">
+        <a href="https://www.euskadi.eus/web01-a2ingai2/es/aa17aCalidadAireWar/estacion/mapa?locale=es">CALIDAD DEL AIRE
+          EN EUSKADI</a>
+      </div>
+
+
+      <div class="d-flex justify-content-center">
+        <a href="https://www.openstreetmap.org/#map=12/43.2660/-2.9519" target="_blank">
+          Ver en OpenStreetMap
+        </a>
+      </div>
+
+    </section>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- end CALIDAD DEL AIRE -->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    <!--------------------CALCULADORA DE SALUD--------------->
+
+    <!--------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            CALCULADORA DE SALUD <br />
+          </h2>
+        </div>
+      </div>
+      <div class="calculadora_salud">
+        <form method="post">
+          <label for="peso">Peso (kg):</label>
+          <input type="number" name="peso" required><br><br>
+
+          <label for="altura">Altura (cm):</label>
+          <input type="number" name="altura" required><br><br>
+
+          <label for="edad">Edad:</label>
+          <input type="number" name="edad" required><br><br>
+
+          <label for="sexo">Sexo:</label>
+          <select name="sexo" required>
+            <option value="mujer">Mujer</option>
+            <option value="hombre">Hombre</option>
+          </select><br><br>
+
+          <label for="actividad">Nivel de actividad física:</label>
+          <select name="actividad" required>
+            <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+            <option value="1.375">Ligero (ejercicio ligero/deportes 1-3 días/semana)</option>
+            <option value="1.55">Moderado (ejercicio moderado/deportes 3-5 días/semana)</option>
+            <option value="1.725">Activo (ejercicio duro/deportes 6-7 días/semana)</option>
+            <option value="1.9">Muy activo (ejercicio muy duro/trabajo físico)</option>
+          </select><br><br>
+
+          <label for="objetivo">Objetivo:</label>
+          <select name="objetivo" required>
+            <option value="mantener">Mantener el peso</option>
+            <option value="perder">Perder peso (deficit calórico)</option>
+            <option value="ganar">Ganar peso (superávit calórico)</option>
+          </select><br><br>
+
+          <label for="entrenamiento">Entrenamiento al aire libre:</label>
+          <select name="entrenamiento" required>
+            <option value="caminata">Caminata</option>
+            <option value="correr">Correr</option>
+            <option value="ciclismo">Ciclismo</option>
+            <option value="Paseo">Paseo</option>
+            <option value="Otro">Otro</option>
+          </select><br><br>
+
+          <button type="submit">Calcular</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Obtener los datos del formulario
+            $peso = $_POST["peso"];
+            $altura = $_POST["altura"];
+            $edad = $_POST["edad"];
+            $sexo = $_POST["sexo"];
+            $actividad = $_POST["actividad"];
+            $objetivo = $_POST["objetivo"];
+
+            // Calcular la tasa metabólica basal (TMB) según la fórmula de Harris-Benedict
+            if ($sexo == "mujer") {
+                $tmb = 655 + (9.6 * $peso) + (1.8 * $altura) - (4.7 * $edad);
+            } else {
+                $tmb = 66 + (13.7 * $peso) + (5 * $altura) - (6.8 * $edad);
+            }
+
+            // Calcular el factor de actividad física
+            $factor_actividad = $actividad;
+
+            // Calcular el objetivo calórico
+            switch ($objetivo) {
+                case "mantener":
+                    $calorias_objetivo = $tmb * $factor_actividad;
+                    $mensaje_objetivo = "Mantener el peso";
+                    break;
+                case "perder":
+                    $calorias_objetivo = $tmb * $factor_actividad - 500; // Déficit de 500 kcal/día para perder peso
+                    $mensaje_objetivo = "Perder peso";
+                    break;
+                case "ganar":
+                    $calorias_objetivo = $tmb * $factor_actividad + 500; // Superávit de 500 kcal/día para ganar peso
+                    $mensaje_objetivo = "Ganar peso";
+                    break;
+            }
+            // Determinar el tipo de entrenamiento más adecuado al aire libre
+            $entrenamiento = isset($_POST["entrenamiento"]) ? $_POST["entrenamiento"] : ""; 
+
+            // Determinar el tipo de entrenamiento más adecuado al aire libre
+            switch ($entrenamiento) {
+              case "caminata":
+                  $mensaje_entrenamiento = "Una caminata al aire libre sería una excelente opción para disfrutar del entorno y quemar calorías.";
+                  break;
+              case "correr":
+                  $mensaje_entrenamiento = "Correr al aire libre te permitirá disfrutar del aire fresco y mejorar tu resistencia cardiovascular.";
+                  break;
+              case "ciclismo":
+                  $mensaje_entrenamiento = "Montar en bicicleta al aire libre es una forma divertida de hacer ejercicio y explorar nuevos lugares.";
+                  break;
+              case "Paseo":
+                  $mensaje_entrenamiento = "El paseo al aire libre puede ser muy efectivo para quemar calorías y mejorar la resistencia.";
+                  break;
+              case "Otro":
+                  $mensaje_entrenamiento = "Si deseas hacer otro ejercicio, ten en cuenta la fuerza que hagas";
+                  break;
+            }
+
+            // Mostrar resultados
+            echo "<h3>Tasa metabólica basal (TMB): $tmb kcal/día</h3>";
+            echo "<h3>Objetivo calórico para $mensaje_objetivo: $calorias_objetivo kcal/día</h3>";
+            echo "<p>Te recomiendo:$mensaje_entrenamiento</p>";
+            }
+            ?>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a
+          href="https://www.gq.com.mx/cuidado-personal/articulo/ganar-volumen-o-ganar-definicion-diferencias-como-conseguirlo-entrenamientos">
+          MÁS INFORMACIÓN
+        </a>
+      </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- end iNFORMACION Y HUMEDAD -->
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <!--INFORMACION CALIDAD DEL AIRE -->
+    <!--RECETAS SALUDABLES Y SOSTENIBLES--->
+    <!--https://www.elmueble.com/cocinas/16-recetas-que-mejoran-tu-salud-y-te-cuidan_45045-->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin" id="recetas">
+      <div class="container">
+        <div class="heading_container">
+          <h2>RECETAS SALUDABLES Y SOSTENIBLES</h2>
+        </div>
+      </div>
+
+      <div class="container_recetas">
+        <div class="row">
+          <!-- Receta 1 -->
+          <div class="col-md-4">
+            <div class="receta_box blanco">
+              <h3>Receta 1</h3>
+              <h5>BERENJENAS RELLENAS</h5>
+              <img src="../images/img_4.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>2 berenjenas</li>
+                <li>Pimientos rojo, amarillo y verde</li>
+                <li>Calabacín</li>
+                <li>Cebolleta</li>
+                <li>Salsa de tomate</li>
+                <li>Huevos</li>
+                <li>Queso rallado</li>
+                <li>Aceite y sal</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Corta las berenjenas por la mitad, cócelas al vapor y vacíalas.</li>
+                <li>Sofríe cebolleta y pimientos, añade berenjena y calabacín, luego salsa de tomate.</li>
+                <li>Rellena las berenjenas con las verduras y huevos. Espolvorea con queso.</li>
+                <li>Hornea hasta que el huevo se cuaje.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 2 -->
+          <div class="col-md-4">
+            <div class="receta_box azul-marino">
+              <h3>Receta 2</h3>
+              <h5>CREMA DE ZANAHORIA</h5>
+              <img src="../images/img_5.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1/2 kg de zanahorias</li>
+                <li>1 cebolla</li>
+                <li>2 naranjas</li>
+                <li>60 gramos de mantequilla</li>
+                <li>1 cucharada de harina</li>
+                <li>400 ml de caldo de pollo</li>
+                <li>100 ml de nata líquida baja en grasas</li>
+                <li>50 gramos de queso parmesano rallado</li>
+                <li>20 gramos de piñones</li>
+                <li>Sal</li>
+                <li>Pimienta</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <p>1. Corta las berenjenas por la mitad, cócelas al vapor y vacíalas.<br>
+                2. Sofríe cebolleta y pimientos, añade berenjena y calabacín, luego salsa de tomate.<br>
+                3. Rellena las berenjenas con las verduras y huevos. Espolvorea con queso.<br>
+                4. Hornea hasta que el huevo se cuaje.</p>
+            </div>
+          </div>
+
+          <!-- Receta 3 -->
+          <div class="col-md-4">
+            <div class="receta_box blanco">
+              <h3>Receta 3</h3>
+              <h5>ENSALADA DE QUINOA Y AGUACATE</h5>
+              <img src="../images/img_6.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1 taza de quinoa</li>
+                <li>2 aguacates</li>
+                <li>1 pepino</li>
+                <li>1 tomate</li>
+                <li>1/4 de cebolla roja</li>
+                <li>Jugo de 2 limones</li>
+                <li>Aceite de oliva</li>
+                <li>Sal y pimienta</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Cocina la quinoa según las instrucciones del paquete y deja que se enfríe.</li>
+                <li>Corta los aguacates, el pepino, el tomate y la cebolla roja en cubos.</li>
+                <li>Mezcla todos los ingredientes en un tazón grande.</li>
+                <li>Aliña con jugo de limón, aceite de oliva, sal y pimienta al gusto.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 4 -->
+          <div class="col-md-4">
+            <div class="receta_box azul-marino">
+              <h3>Receta 4</h3>
+              <h5>SOPA DE LENTEJAS Y VEGETALES</h5>
+              <img src="../images/img_8.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1 taza de lentejas secas</li>
+                <li>2 zanahorias</li>
+                <li>2 tallos de apio</li>
+                <li>1 cebolla</li>
+                <li>2 dientes de ajo</li>
+                <li>1 tomate</li>
+                <li>1 litro de caldo de verduras</li>
+                <li>Sal y pimienta</li>
+                <li>Hierbas frescas (opcional)</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Lava y remoja las lentejas en agua durante la noche.</li>
+                <li>Corta las zanahorias, el apio, la cebolla, el ajo y el tomate en trozos pequeños.</li>
+                <li>En una olla grande, saltea las verduras en un poco de aceite hasta que estén tiernas.</li>
+                <li>Agrega las lentejas escurridas y el caldo de verduras. Cocina a fuego lento hasta que las lentejas
+                  estén tiernas.</li>
+                <li>Sazona con sal, pimienta y hierbas frescas al gusto antes de servir.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 5 -->
+          <div class="col-md-4">
+            <div class="receta_box blanco">
+              <h3>Receta 5</h3>
+              <h5>ENSALADA DE GARBANZOS Y ESPINACAS</h5>
+              <img src="../images/img_7.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>2 tazas de garbanzos cocidos</li>
+                <li>2 tazas de espinacas frescas</li>
+                <li>1 pepino</li>
+                <li>1 pimiento rojo</li>
+                <li>1/4 de cebolla roja</li>
+                <li>1 limón (jugo)</li>
+                <li>2 cucharadas de aceite de oliva</li>
+                <li>Sal y pimienta al gusto</li>
+                <li>Hojuelas de chile rojo (opcional)</li>
+                <li>Perejil fresco (opcional)</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Enjuaga los garbanzos cocidos y escúrrelos.</li>
+                <li>Corta el pepino, el pimiento rojo y la cebolla en cubos pequeños.</li>
+                <li>En un tazón grande, mezcla los garbanzos, las espinacas, el pepino, el pimiento rojo y la cebolla.
+                </li>
+                <li>Aliña la ensalada con el jugo de limón, el aceite de oliva, sal, pimienta y hojuelas de chile rojo
+                  si deseas un toque picante.</li>
+                <li>Mezcla bien y sirve, adornando con perejil fresco si lo deseas.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 6 -->
+          <div class="col-md-4">
+            <div class="receta_box azul-marino">
+              <h3>Receta 6</h3>
+              <h5>BOWL DE QUINOA CON VEGETALES Y HUEVO</h5>
+              <img src="../images/img_9.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1 taza de quinoa</li>
+                <li>2 zanahorias</li>
+                <li>1 calabacín</li>
+                <li>1 pimiento rojo</li>
+                <li>1 cebolla morada</li>
+                <li>1 o 2 huevos</li>
+                <li>5 tomates cherry</li>
+                <li>2 cucharadas de aceite de oliva</li>
+                <li>Sal y pimienta al gusto</li>
+                <li>Especias (opcional)</li>
+                <li>Yogur griego (opcional)</li>
+                <li>Salsa de tahini (opcional)</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Lava y enjuaga la quinoa. Cocínala según las instrucciones del paquete y reserva.</li>
+                <li>Corta las zanahorias, el calabacín,los tomates, el pimiento rojo y la cebolla morada en trozos.</li>
+                <li>Coloca los vegetales en una bandeja para hornear,echale uno o dos huevos, rocíalos con aceite de
+                  oliva y sazona con sal, pimienta y especias al gusto.</li>
+                <li>Hornea los vegetales a 200°C (390°F) durante 20-25 minutos o hasta que estén tiernos y ligeramente
+                  dorados.</li>
+                <li>En cada tazón, sirve una porción de quinoa cocida y vegetales asados.</li>
+                <li>Si lo deseas, acompaña con yogur griego o salsa de tahini por encima.</li>
+                <li>Sirve caliente y disfruta tu bowl de quinoa con vegetales asados.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="https://www.diezminutos.es/recetas-sanas-ligeras/">
+          MAS RECETAS SOSTENIBLES
+        </a>
+        <a
+          href="https://www.directoalpaladar.com/salud/nueve-alimentos-ricos-grasas-saludables-que-nutricionistas-recomiendan">
+          PRODUCTOS BAJOS EN CALORIAS Y RICOS EN GRASAS SALUDABLES
+        </a>
+        <a href="https://eco-nutricion.com/alimentos-de-consumo-diario/">
+          ALIMENTOS QUE DEBEMOS CONSUMIR DIARIAMENTE
+        </a>
+        <a href="https://www.elmundo.es/yodona/vida-saludable/2022/06/20/621e1e3cfdddff3b3e8b45d3.html">
+          10 ALIMENTOS RICOS EN PROTEINAS
+        </a>
+        <a
+          href="https://www.gob.mx/cms/uploads/attachment/file/590984/ALIMENTOS_QUE_FORTALECEN_EL_SISTEMA_DE_DEFENSA.__3_.pdf">
+          ALIMENTOS QUE FORTALECEN EL SISTEMA DE DEFENSA
+        </a>
+
+      </div>
+      <div class="container_dieta">
+        <div class="row">
+          <div class="col-md-8 ">
+            <div class="heading_container">
+              <h2>Dieta Personalizada</h2>
+            </div>
+
+            <form action="dieta_db.php" method="POST">
+              <label>Edad:</label>
+              <input type="number" id="edad" name="edad" required><br><br>
+              <label>Objetivo:</label>
+              <select id="objetivo" name="objetivo" required>
+                <option value="BAJAR_DE_PESO">Bajar de peso</option>
+                <option value="MANTENER_PESO">Mantener el peso</option>
+                <option value="AUMENTAR_MASA_MUSCULAR">Aumentar masa muscular</option>
+              </select><br><br>
+
+              <input type="submit" name="dieta" value="Ver dieta">
+            </form>
+          </div>
+
+          <div class="col-md-6 " id="resultado_dieta"></div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $("form").submit(function (e) {
+              e.preventDefault(); // Evitar el envío del formulario
+
+              // Obtener los datos del formulario
+              var formData = $(this).serialize();
+
+              // Realizar la solicitud AJAX
+              $.ajax({
+                type: "POST",
+                url: "dieta_db.php",
+                data: formData,
+                success: function (response) {
+                  $("#resultado_dieta").html(response); // Mostrar el resultado en el contenedor
+                }
+              });
+            });
+          });
+        </script>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="https://www.divinacocina.es/tabla-de-calorias/">
+          TABLA DE CALORIAS
+        </a>
+      </div>
+    </section>
+
+
+    <!------------------------------------------------------------------->
+    <!-- end RECETAS SALUDABLES Y SOSTENIBLES -->
+    <!--------------------------------------------------------------->
+
+
+    <!-- download section -->
+
+    <section class="download_section layout_padding-bottom">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Download Anytime, Anywhere
+          </h2>
+        </div>
+        <div class="layout_padding2-top">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/cloud-download.png" alt="" />
+                  </div>
+                  <h6>
+                    Download The App
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Enhance your sports experience in Bilbao with Bilbao SportAir!
+                    Download our mobile app now and sign up to receive real-time notifications about environmental
+                    conditions along the riverbank.
+                    Prioritize your safety and well-being! 🏃‍♀️🚴‍♂️ #BilbaoSportAir #SafeSport
+                  </p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/playstore.png" alt="" />
+                  </div>
+                  <h6>
+                    Integration with Wearable Devices
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Seamless integration with wearable devices! Bilbao SportAir connects with fitness trackers and
+                    smartwatches,
+                    offering users direct access to environmental data. Stay updated effortlessly during your
+                    activities.
+                    🌐🏃‍♂️ #WearableIntegration
+                  </p>
+                </div>
+              </div>
+              <div>
+                <a href="" class="btn-1">
+                  Read More
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="main-img-box">
+                <img src="../images/img2.png" alt="" />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/heart.png" alt="" />
+                  </div>
+                  <h6>
+                    Community health
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Prioritize community health with Bilbao SportAir! Stay informed about environmental conditions along
+                    the riverbank.
+                    Join us in fostering a healthier community! 🌍🏞️ #BilbaoSportAir #CommunityHealth
+                  </p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/trophy_.png" alt="" />
+                  </div>
+                  <h6>
+                    Emergency Response Preparedness
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Enhance safety with Bilbao SportAir! In emergencies like extreme weather or environmental hazards,
+                    receive timely alerts for quick action. Proactive measures ensure the safety of athletes and the
+                    community. 🚨🆘 #BilbaoSportAir #EmergencySafety
+                  </p>
+                </div>
+              </div>
+              <div>
+                <a href="" class="btn-2">
+                  Download Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end download section -->
+
+    <!-- SECCIÓN ABOUT AS-->
+    <section class="about_section layout_padding">
+      <div class="container">
+        <div class="heading_container d-flex justify-content-lg-start">
+          <h2>
+            About Us
+          </h2>
+        </div>
+        <div class="layout_padding2-top">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="detail-box b-1">
+                <p>
+                  Este proyecto se centra en el diseño e implementación de una Aplicación Web que permite a los usuarios
+                  registrar y
+                  visualizar en tiempo real datos sobre la calidad del aire, temperatura,
+                  presión atmosférica y humedad a través de un dispositivo IoT situado en una ubicación específica.
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="detail-box b-2">
+                <p>
+                  dirigido a una amplia gama de audiencias, incluyendo deportistas, residentes locales, investigadores
+                  ambientales y cualquier persona preocupada por su salud y el medio ambiente. Proporciona datos
+                  valiosos y
+                  herramientas para tomar decisiones informadas y promover estilos de vida saludables y sostenibles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end about section -->
+
+    <!-- subscribe section -->
+    <section class="subscribe_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Subscribe For Updates
+          </h2>
+        </div>
+        <form action="" class="layout_padding2-top">
+          <input type="email" placeholder="Enter your email" />
+          <button>
+            subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- end subscribe section -->
+
+    <!-- client section -->
+    <section class="client_section layout_margin">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Check what people say About us!
+          </h2>
+        </div>
+        <div class="client_container layout_padding2-top">
+          <div class="client-id">
+            <div class="img-box">
+              <img src="../images/client.png" alt="" />
+            </div>
+            <div class="name">
+              <img src="../images/quote.png" alt="" />
+              <h6>
+                Sandy Delex
+              </h6>
+              <p>
+                Runner
+              </p>
+            </div>
+          </div>
+          <div class="client-detail">
+            <p>
+              Bilbao SportAir has taken my outdoor fitness experience to a whole new level. The app, with its real-time
+              data on air quality and environmental conditions,
+              has enabled me to make safer decisions during my outdoor workouts. Its user-friendly approach and
+              commitment to the community make it my essential
+              companion for an active and healthy lifestyle. If you're looking for an app that makes a difference,
+              Bilbao SportAir is the perfect choice! 🏃‍♀️🌿 #BilbaoSportAir #ActiveLiving
+            </p>
+          </div>
+          <div class="d-flex justify-content-end">
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end client section -->
+
+
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+      <div class="container">
+        <div class="d-flex ">
+          <h2>
+            Contact Us
+          </h2>
+        </div>
+        <style>
+          #mostrarFormulario {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+
+          /* Estilo del botón al pasar el cursor */
+          #mostrarFormulario:hover {
+            background-color: #0056b3;
+          }
+
+          /* Estilo del formulario */
+          #contacto {
+            display: none;
+            /* Inicialmente oculto */
+          }
+
+          .contact_form-container {
+            margin-top: 20px;
+          }
+
+          .contact_form-container input,
+          .contact_form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+
+          .contact_form-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+
+          .contact_form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+          }
+        </style>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Botón para mostrar el formulario de contacto -->
+            <button id="mostrarFormulario">Contactar</button>
+
+            <!-- Formulario de contacto (inicialmente oculto) -->
+            <div id="contacto">
+              <form action="">
+                <div class="contact_form-container">
+                  <div>
+                    <div>
+                      <input type="email_origen" placeholder="De:">
+                    </div>
+                    <div>
+                      <input type="email_destino" placeholder="Para:">
+                    </div>
+                    <div class="mt-5">
+                      <input type="text" placeholder="Texto">
+                    </div>
+                    <div class="mt-5">
+                      <button type="submit">ENVIAR</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="contact_img-box">
+              <img src="../images/img3.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.getElementById('mostrarFormulario').addEventListener('click', function () {
+            document.getElementById('contacto').style.display = 'block'; // Mostrar el formulario al hacer clic en el botón
+            this.style.display = 'none'; // Ocultar el botón después de mostrar el formulario
+          });
+        </script>
+    </section>
+
+    <!-- info section -->
+    <section class="info_section layout_padding-top">
+      <div class="info_logo-box">
+        <h2>
+          IoTActiveLife
+        </h2>
+      </div>
+      <div class="container layout_padding2">
+        <div class="row">
+          <div class="col-md-3">
+            <h5>
+              Sobre nosotros
+            </h5>
+            <p>
+              IoTActiveLife: Tu seguridad, nuestra prioridad. Información en tiempo real para una
+              comunidad más
+              saludable.
+          </div>
+          <div class="col-md-3">
+            <h5>
+              Usar el link
+            </h5>
+            <ul>
+              <li>
+                <a href="https://www.apple.com/app-store/ ">
+                  App Store
+                </a>
+              </li>
+              <li>
+                <a href="https://play.google.com/store/games?hl=en&gl=US ">
+                  Play Store
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>
+              Contactar con nosotros
+            </h5>
+            <p>
+              ¡Conéctate con IoT Active! ¿Tienes preguntas o comentarios? Contáctanos en
+              maitane.garcia02@opendeusto.es.
+              ¡Tu opinión es importante!
+            </p>
+          </div>
+          <div class="col-md-3">
+
+            <div class="subscribe_container">
+              <h5>
+                Boletín informativo
+              </h5>
+              <div class="form_container">
+                <form action="">
+                  <input type="email" placeholder="Meter el email">
+                  <button type="submit">
+                    Subscribirse
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="social_container">
+
+          <div class="social-box">
+            <a href="">
+              <img src="../images/fb.png" alt="">
+            </a>
+
+            <a href="">
+              <img src="../images/twitter.png" alt="">
+            </a>
+            <a href="">
+              <img src="../images/linkedin.png" alt="">
+            </a>
+            <a href="">
+              <img src="../images/instagram.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end info section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+    </section>
+    <!-- footer section -->
+
+    <!-- footer section -->
+
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!--LOGIN AND RESGITRO JS-->
+    <script type="text/javascript" src="../js/script.js"></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("myNav").classList.toggle("menu_width");
+        document
+          .querySelector(".custom_menu-btn")
+          .classList.toggle("menu_btn-style");
+      }
+    </script>
+
+
+  </div>
+</body>
+
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>IoT ActiveLife For You</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="../css/style_init.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+
+<body >
+  <div class="hero_area" class="desktop" class="tablet" class="movil">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="../Pagina_Principal.html">
+            <span>
+              IoT ActiveLife
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="../index.html">SALIR</a>
+                <a href="../Pagina_Principal.html">PAGINA PRINCIPAL</a>
+                <a href="./views/Temperatura_humedad.html">INFORMACIÓN SOBRE LA TEMPERATURA/HUMEDAD</a>
+                <a href="../views/Calidad_aire.html">CALIDAD DEL AIRE</a>
+                <a href="../Calculadora_Salud.html">CALCULADORA SALUD</a>
+                <a href="./views/Rutas.html">RUTAS</a>
+                <a href="../Ejercicios.html">EJERCICIOS Y RUTINAS</a>
+                <a href="../Recetas_Saludables_Sostenibles.html">RECETAS SALUDABLES Y SOSTENIBLES</a>
+                <a href="../views/">MÁS INFORMACIÓN</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <section class="slider_section position-relative">
+      <div class="container" id="container">
+        <div class="row">
+          <h2>Secciones de IoT Active Life</h2>
+          <div class="secciones-container">
+            <div class="seccion">
+              <img src="../images/temp_hum.png" alt="Temperatura">
+              <div class="contenido">
+
+                <p>Temperatura y humedad en tiempo real</p>
+                <button onclick="irASeccion('#temp_hum')">Temperatura/Humedad</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/calidad.png" alt="Calidad">
+              <div class="contenido">
+
+                <p>Medimos la calidad del aire</p>
+                <button onclick="irASeccion('#calidad')">Calidad del aire</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/rutas.png" alt="Culturismo">
+              <div class="contenido">
+
+                <p>¿Por donde te apetece hacer deporte hoy?</p>
+                <button onclick="irASeccion('#rutas')">Rutas/Caminos</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/rutinas.png" alt="TRX">
+              <div class="contenido">
+
+                <p>Rutinas con cuerdas para entrenamiento funcional.</p>
+                <button onclick="irASeccion('#trx')">Rutinas/Ejercicios</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/recetas.png" alt="Remo">
+              <div class="contenido">
+
+                <p>Recetas sostenibles y saludables </p>
+                <button onclick="irASeccion('#recetas')">Recetas</button>
+              </div>
+            </div>
+
+
+            <div class="seccion">
+              <img src="../images/info.png" alt="Clases adicionales">
+              <div class="contenido">
+
+                <p>Sección especial del proceso del TFG</p>
+                <button onclick="irASeccion('#clases_adicionales')">Información</button>
+              </div>
+            </div>
+          </div>
+
+
+          <script>
+            function irASeccion(seccion) {
+              window.location.href = seccion; // Esto te lleva a la sección correspondiente
+            }
+          </script>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <!--INFORMACION SOBRE LA TEMPERATURA Y HUMEDAD -->
+    <!--
+    CONECTAR CON LA RASPBERRY PI
+    -HUMEDAD
+    -TEMPERATURA
+    CONECTAR CON EL ATMOTUBE-PRO
+    GRAFICAS
+    TDOD EL TIEMPO REAL
+--->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin" id="temp_hum">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            TEMPERATURA Y HUMEDAD <br />
+          </h2>
+        </div>
+      </div>
+      <div class=datos_humedad/temepratura>
+        <div id="weather-info">
+          <h2>Información Meteorológica</h2>
+          <p><strong>Temperatura:</strong> <span id="temperature"></span> &deg;C</p>
+          <p><strong>Humedad:</strong> <span id="humidity"></span>%</p>
+          <p><strong>Posibilidad de Lluvia:</strong> <span id="chance-of-rain"></span>%</p>
+          <p><strong>Salida del Sol:</strong> <span id="sunrise"></span></p>
+          <p><strong>Puesta del Sol:</strong> <span id="sunset"></span></p>
+        </div>
+        <script type="text/javascript" src="../js/script.js"></script>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <a href="https://www.eltiempo.es/bilbao.html">
+          METEOROLOGÍA & SOSTENIBILIDAD
+        </a>
+      </div>
+    </section>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- end iNFORMACION Y HUMEDAD -->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!---METER UN APARTADO PARA EL RITMO CARDICAO DEPENDIENDO DE LA VELOCIDAD A LA QUE VAYA-->
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <!--INFORMACION CALIDAD DEL AIRE -->
+    <!--
+    CONECTAR CON LA RASPBERRY PI
+    -CALIDAD
+    CONECTAR CON EL ATMOTUBE-PRO
+    GRAFICAS
+    TODO EN TIEMPO REAL-->
+
+
+    <!--pasos a seguir
+    Conexión con la Raspberry Pi para obtener datos sobre la calidad del aire:
+
+      Debes configurar tu Raspberry Pi para que recolecte y proporcione datos sobre la calidad del aire. Esto podría implicar el uso de sensores de calidad del aire y un software para recopilar y procesar los datos.
+    Una vez que tengas los datos disponibles en la Raspberry Pi, puedes crear una API en la Raspberry Pi que exponga estos datos de alguna manera. 
+    Esto podría ser a través de una API web o de otro protocolo de comunicación.
+     tu página web, puedes hacer solicitudes a esta API de la Raspberry Pi para obtener los datos en tiempo real y mostrarlos en tu página web.
+    Conexión con Atmotube PRO para mostrar gráficas en tiempo real:
+
+    Debes configurar tu Atmotube PRO para que proporcione datos en tiempo real a través de su API.
+        Puedes usar JavaScript para hacer solicitudes a la API de Atmotube PRO y obtener los datos necesarios para tus gráficas.
+       una biblioteca de gráficos como Chart.js, D3.js, o cualquier otra, para crear las gráficas y mostrar los datos en tiempo real en tu página web.
+        -->
+    <!--AÑADIR EL MAPA
+  
+
+Inicia sesión en ThingsBoard: Accede a tu panel de ThingsBoard utilizando tus credenciales.
+
+Navega a la pestaña de Dashboards: Una vez que hayas iniciado sesión, ve a la pestaña de Dashboards en el menú de navegación.
+
+Crea o selecciona un Dashboard: Puedes crear un nuevo dashboard o seleccionar uno existente en el que desees agregar el mapa.
+
+Añade un nuevo widget de mapa: Haz clic en el botón de "Add new widget" o "Añadir nuevo widget" (dependiendo de la interfaz de usuario de tu versión de ThingsBoard). Selecciona el tipo de widget de mapa. ThingsBoard ofrece varios tipos de widgets de mapa, como Mapa, Mapa de calor, Marcadores, etc. Selecciona el que mejor se adapte a tus necesidades.
+
+Configura el widget de mapa: Una vez agregado el widget de mapa, configúralo según tus preferencias. Puedes personalizar el centro del mapa, el nivel de zoom, los marcadores, el estilo del mapa, etc.
+
+Conecta los datos del mapa: En la configuración del widget de mapa, puedes seleccionar los datos que deseas mostrar en el mapa. Dependiendo de cómo hayas configurado tus dispositivos en ThingsBoard y qué datos estén disponibles, podrás mostrar datos como la ubicación de los dispositivos en el mapa, el estado de los sensores, etc.
+
+Guarda el dashboard: Una vez que hayas configurado el widget de mapa según tus preferencias, guarda los cambios en el dashboard.
+
+Visualiza el dashboard: Ahora puedes visualizar el dashboard para ver el mapa que has añadido con los datos correspondientes.
+
+Siguiendo estos pasos, podrás agregar un mapa a través de ThingsBoard y visualizar los datos que desees en él. Recuerda que la disponibilidad y funcionalidad exacta de los widgets pueden variar dependiendo de la versión específica de ThingsBoard que estés utilizando.-->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin" id="calidad">
+      <div class="container">
+        <div class="heading_container">
+          <h2>MAPA DE CALIDAD DEL AIRE</h2>
+        </div>
+      </div>
+
+
+      <div class="calidad_aire">
+        <h2>Información Calidad del aire</h2>
+        <p><strong>Calidad del aire:</strong> </p>
+        <!-- Indicador mientras carga -->
+      </div>
+
+
+      <!-- Mapa de Leaflet.js -->
+      <div id="map" style="height: 300px; width: 100%;"></div> <!-- Contenedor para el mapa -->
+
+
+      <div class="d-flex justify-content-center">
+        <a href="https://www.euskadi.eus/web01-a2ingai2/es/aa17aCalidadAireWar/estacion/mapa?locale=es">CALIDAD DEL AIRE
+          EN EUSKADI</a>
+      </div>
+
+
+      <div class="d-flex justify-content-center">
+        <a href="https://www.openstreetmap.org/#map=12/43.2660/-2.9519" target="_blank">
+          Ver en OpenStreetMap
+        </a>
+      </div>
+
+    </section>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- end CALIDAD DEL AIRE -->
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    <!--------------------CALCULADORA DE SALUD--------------->
+
+    <!--------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            CALCULADORA DE SALUD <br />
+          </h2>
+        </div>
+      </div>
+      <div class="calculadora_salud">
+        <form method="post">
+          <label for="peso">Peso (kg):</label>
+          <input type="number" name="peso" required><br><br>
+
+          <label for="altura">Altura (cm):</label>
+          <input type="number" name="altura" required><br><br>
+
+          <label for="edad">Edad:</label>
+          <input type="number" name="edad" required><br><br>
+
+          <label for="sexo">Sexo:</label>
+          <select name="sexo" required>
+            <option value="mujer">Mujer</option>
+            <option value="hombre">Hombre</option>
+          </select><br><br>
+
+          <label for="actividad">Nivel de actividad física:</label>
+          <select name="actividad" required>
+            <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+            <option value="1.375">Ligero (ejercicio ligero/deportes 1-3 días/semana)</option>
+            <option value="1.55">Moderado (ejercicio moderado/deportes 3-5 días/semana)</option>
+            <option value="1.725">Activo (ejercicio duro/deportes 6-7 días/semana)</option>
+            <option value="1.9">Muy activo (ejercicio muy duro/trabajo físico)</option>
+          </select><br><br>
+
+          <label for="objetivo">Objetivo:</label>
+          <select name="objetivo" required>
+            <option value="mantener">Mantener el peso</option>
+            <option value="perder">Perder peso (deficit calórico)</option>
+            <option value="ganar">Ganar peso (superávit calórico)</option>
+          </select><br><br>
+
+          <label for="entrenamiento">Entrenamiento al aire libre:</label>
+          <select name="entrenamiento" required>
+            <option value="caminata">Caminata</option>
+            <option value="correr">Correr</option>
+            <option value="ciclismo">Ciclismo</option>
+            <option value="Paseo">Paseo</option>
+            <option value="Otro">Otro</option>
+          </select><br><br>
+
+          <button type="submit">Calcular</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Obtener los datos del formulario
+            $peso = $_POST["peso"];
+            $altura = $_POST["altura"];
+            $edad = $_POST["edad"];
+            $sexo = $_POST["sexo"];
+            $actividad = $_POST["actividad"];
+            $objetivo = $_POST["objetivo"];
+
+            // Calcular la tasa metabólica basal (TMB) según la fórmula de Harris-Benedict
+            if ($sexo == "mujer") {
+                $tmb = 655 + (9.6 * $peso) + (1.8 * $altura) - (4.7 * $edad);
+            } else {
+                $tmb = 66 + (13.7 * $peso) + (5 * $altura) - (6.8 * $edad);
+            }
+
+            // Calcular el factor de actividad física
+            $factor_actividad = $actividad;
+
+            // Calcular el objetivo calórico
+            switch ($objetivo) {
+                case "mantener":
+                    $calorias_objetivo = $tmb * $factor_actividad;
+                    $mensaje_objetivo = "Mantener el peso";
+                    break;
+                case "perder":
+                    $calorias_objetivo = $tmb * $factor_actividad - 500; // Déficit de 500 kcal/día para perder peso
+                    $mensaje_objetivo = "Perder peso";
+                    break;
+                case "ganar":
+                    $calorias_objetivo = $tmb * $factor_actividad + 500; // Superávit de 500 kcal/día para ganar peso
+                    $mensaje_objetivo = "Ganar peso";
+                    break;
+            }
+            // Determinar el tipo de entrenamiento más adecuado al aire libre
+            $entrenamiento = isset($_POST["entrenamiento"]) ? $_POST["entrenamiento"] : ""; 
+
+            // Determinar el tipo de entrenamiento más adecuado al aire libre
+            switch ($entrenamiento) {
+              case "caminata":
+                  $mensaje_entrenamiento = "Una caminata al aire libre sería una excelente opción para disfrutar del entorno y quemar calorías.";
+                  break;
+              case "correr":
+                  $mensaje_entrenamiento = "Correr al aire libre te permitirá disfrutar del aire fresco y mejorar tu resistencia cardiovascular.";
+                  break;
+              case "ciclismo":
+                  $mensaje_entrenamiento = "Montar en bicicleta al aire libre es una forma divertida de hacer ejercicio y explorar nuevos lugares.";
+                  break;
+              case "Paseo":
+                  $mensaje_entrenamiento = "El paseo al aire libre puede ser muy efectivo para quemar calorías y mejorar la resistencia.";
+                  break;
+              case "Otro":
+                  $mensaje_entrenamiento = "Si deseas hacer otro ejercicio, ten en cuenta la fuerza que hagas";
+                  break;
+            }
+
+            // Mostrar resultados
+            echo "<h3>Tasa metabólica basal (TMB): $tmb kcal/día</h3>";
+            echo "<h3>Objetivo calórico para $mensaje_objetivo: $calorias_objetivo kcal/día</h3>";
+            echo "<p>Te recomiendo:$mensaje_entrenamiento</p>";
+            }
+            ?>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a
+          href="https://www.gq.com.mx/cuidado-personal/articulo/ganar-volumen-o-ganar-definicion-diferencias-como-conseguirlo-entrenamientos">
+          MÁS INFORMACIÓN
+        </a>
+      </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- end iNFORMACION Y HUMEDAD -->
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------->
+    <!--INFORMACION CALIDAD DEL AIRE -->
+    <!--RECETAS SALUDABLES Y SOSTENIBLES--->
+    <!--https://www.elmueble.com/cocinas/16-recetas-que-mejoran-tu-salud-y-te-cuidan_45045-->
+    <!--------------------------------------------------------------------------------------------->
+    <section class="feature_section layout_padding2 layout_margin" id="recetas">
+      <div class="container">
+        <div class="heading_container">
+          <h2>RECETAS SALUDABLES Y SOSTENIBLES</h2>
+        </div>
+      </div>
+
+      <div class="container_recetas">
+        <div class="row">
+          <!-- Receta 1 -->
+          <div class="col-md-4">
+            <div class="receta_box blanco">
+              <h3>Receta 1</h3>
+              <h5>BERENJENAS RELLENAS</h5>
+              <img src="../images/img_4.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>2 berenjenas</li>
+                <li>Pimientos rojo, amarillo y verde</li>
+                <li>Calabacín</li>
+                <li>Cebolleta</li>
+                <li>Salsa de tomate</li>
+                <li>Huevos</li>
+                <li>Queso rallado</li>
+                <li>Aceite y sal</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Corta las berenjenas por la mitad, cócelas al vapor y vacíalas.</li>
+                <li>Sofríe cebolleta y pimientos, añade berenjena y calabacín, luego salsa de tomate.</li>
+                <li>Rellena las berenjenas con las verduras y huevos. Espolvorea con queso.</li>
+                <li>Hornea hasta que el huevo se cuaje.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 2 -->
+          <div class="col-md-4">
+            <div class="receta_box azul-marino">
+              <h3>Receta 2</h3>
+              <h5>CREMA DE ZANAHORIA</h5>
+              <img src="../images/img_5.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1/2 kg de zanahorias</li>
+                <li>1 cebolla</li>
+                <li>2 naranjas</li>
+                <li>60 gramos de mantequilla</li>
+                <li>1 cucharada de harina</li>
+                <li>400 ml de caldo de pollo</li>
+                <li>100 ml de nata líquida baja en grasas</li>
+                <li>50 gramos de queso parmesano rallado</li>
+                <li>20 gramos de piñones</li>
+                <li>Sal</li>
+                <li>Pimienta</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <p>1. Corta las berenjenas por la mitad, cócelas al vapor y vacíalas.<br>
+                2. Sofríe cebolleta y pimientos, añade berenjena y calabacín, luego salsa de tomate.<br>
+                3. Rellena las berenjenas con las verduras y huevos. Espolvorea con queso.<br>
+                4. Hornea hasta que el huevo se cuaje.</p>
+            </div>
+          </div>
+
+          <!-- Receta 3 -->
+          <div class="col-md-4">
+            <div class="receta_box blanco">
+              <h3>Receta 3</h3>
+              <h5>ENSALADA DE QUINOA Y AGUACATE</h5>
+              <img src="../images/img_6.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1 taza de quinoa</li>
+                <li>2 aguacates</li>
+                <li>1 pepino</li>
+                <li>1 tomate</li>
+                <li>1/4 de cebolla roja</li>
+                <li>Jugo de 2 limones</li>
+                <li>Aceite de oliva</li>
+                <li>Sal y pimienta</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Cocina la quinoa según las instrucciones del paquete y deja que se enfríe.</li>
+                <li>Corta los aguacates, el pepino, el tomate y la cebolla roja en cubos.</li>
+                <li>Mezcla todos los ingredientes en un tazón grande.</li>
+                <li>Aliña con jugo de limón, aceite de oliva, sal y pimienta al gusto.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 4 -->
+          <div class="col-md-4">
+            <div class="receta_box azul-marino">
+              <h3>Receta 4</h3>
+              <h5>SOPA DE LENTEJAS Y VEGETALES</h5>
+              <img src="../images/img_8.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1 taza de lentejas secas</li>
+                <li>2 zanahorias</li>
+                <li>2 tallos de apio</li>
+                <li>1 cebolla</li>
+                <li>2 dientes de ajo</li>
+                <li>1 tomate</li>
+                <li>1 litro de caldo de verduras</li>
+                <li>Sal y pimienta</li>
+                <li>Hierbas frescas (opcional)</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Lava y remoja las lentejas en agua durante la noche.</li>
+                <li>Corta las zanahorias, el apio, la cebolla, el ajo y el tomate en trozos pequeños.</li>
+                <li>En una olla grande, saltea las verduras en un poco de aceite hasta que estén tiernas.</li>
+                <li>Agrega las lentejas escurridas y el caldo de verduras. Cocina a fuego lento hasta que las lentejas
+                  estén tiernas.</li>
+                <li>Sazona con sal, pimienta y hierbas frescas al gusto antes de servir.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 5 -->
+          <div class="col-md-4">
+            <div class="receta_box blanco">
+              <h3>Receta 5</h3>
+              <h5>ENSALADA DE GARBANZOS Y ESPINACAS</h5>
+              <img src="../images/img_7.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>2 tazas de garbanzos cocidos</li>
+                <li>2 tazas de espinacas frescas</li>
+                <li>1 pepino</li>
+                <li>1 pimiento rojo</li>
+                <li>1/4 de cebolla roja</li>
+                <li>1 limón (jugo)</li>
+                <li>2 cucharadas de aceite de oliva</li>
+                <li>Sal y pimienta al gusto</li>
+                <li>Hojuelas de chile rojo (opcional)</li>
+                <li>Perejil fresco (opcional)</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Enjuaga los garbanzos cocidos y escúrrelos.</li>
+                <li>Corta el pepino, el pimiento rojo y la cebolla en cubos pequeños.</li>
+                <li>En un tazón grande, mezcla los garbanzos, las espinacas, el pepino, el pimiento rojo y la cebolla.
+                </li>
+                <li>Aliña la ensalada con el jugo de limón, el aceite de oliva, sal, pimienta y hojuelas de chile rojo
+                  si deseas un toque picante.</li>
+                <li>Mezcla bien y sirve, adornando con perejil fresco si lo deseas.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Receta 6 -->
+          <div class="col-md-4">
+            <div class="receta_box azul-marino">
+              <h3>Receta 6</h3>
+              <h5>BOWL DE QUINOA CON VEGETALES Y HUEVO</h5>
+              <img src="../images/img_9.png" alt="" style="width: 500px;" />
+              <p><strong>Ingredientes (para 4 personas):</strong></p>
+              <ul>
+                <li>1 taza de quinoa</li>
+                <li>2 zanahorias</li>
+                <li>1 calabacín</li>
+                <li>1 pimiento rojo</li>
+                <li>1 cebolla morada</li>
+                <li>1 o 2 huevos</li>
+                <li>5 tomates cherry</li>
+                <li>2 cucharadas de aceite de oliva</li>
+                <li>Sal y pimienta al gusto</li>
+                <li>Especias (opcional)</li>
+                <li>Yogur griego (opcional)</li>
+                <li>Salsa de tahini (opcional)</li>
+              </ul>
+              <p><strong>Elaboración:</strong></p>
+              <ol>
+                <li>Lava y enjuaga la quinoa. Cocínala según las instrucciones del paquete y reserva.</li>
+                <li>Corta las zanahorias, el calabacín,los tomates, el pimiento rojo y la cebolla morada en trozos.</li>
+                <li>Coloca los vegetales en una bandeja para hornear,echale uno o dos huevos, rocíalos con aceite de
+                  oliva y sazona con sal, pimienta y especias al gusto.</li>
+                <li>Hornea los vegetales a 200°C (390°F) durante 20-25 minutos o hasta que estén tiernos y ligeramente
+                  dorados.</li>
+                <li>En cada tazón, sirve una porción de quinoa cocida y vegetales asados.</li>
+                <li>Si lo deseas, acompaña con yogur griego o salsa de tahini por encima.</li>
+                <li>Sirve caliente y disfruta tu bowl de quinoa con vegetales asados.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="https://www.diezminutos.es/recetas-sanas-ligeras/">
+          MAS RECETAS SOSTENIBLES
+        </a>
+        <a
+          href="https://www.directoalpaladar.com/salud/nueve-alimentos-ricos-grasas-saludables-que-nutricionistas-recomiendan">
+          PRODUCTOS BAJOS EN CALORIAS Y RICOS EN GRASAS SALUDABLES
+        </a>
+        <a href="https://eco-nutricion.com/alimentos-de-consumo-diario/">
+          ALIMENTOS QUE DEBEMOS CONSUMIR DIARIAMENTE
+        </a>
+        <a href="https://www.elmundo.es/yodona/vida-saludable/2022/06/20/621e1e3cfdddff3b3e8b45d3.html">
+          10 ALIMENTOS RICOS EN PROTEINAS
+        </a>
+        <a
+          href="https://www.gob.mx/cms/uploads/attachment/file/590984/ALIMENTOS_QUE_FORTALECEN_EL_SISTEMA_DE_DEFENSA.__3_.pdf">
+          ALIMENTOS QUE FORTALECEN EL SISTEMA DE DEFENSA
+        </a>
+
+      </div>
+      <div class="container_dieta">
+        <div class="row">
+          <div class="col-md-8 ">
+            <div class="heading_container">
+              <h2>Dieta Personalizada</h2>
+            </div>
+
+            <form action="dieta_db.php" method="POST">
+              <label>Edad:</label>
+              <input type="number" id="edad" name="edad" required><br><br>
+              <label>Objetivo:</label>
+              <select id="objetivo" name="objetivo" required>
+                <option value="BAJAR_DE_PESO">Bajar de peso</option>
+                <option value="MANTENER_PESO">Mantener el peso</option>
+                <option value="AUMENTAR_MASA_MUSCULAR">Aumentar masa muscular</option>
+              </select><br><br>
+
+              <input type="submit" name="dieta" value="Ver dieta">
+            </form>
+          </div>
+
+          <div class="col-md-6 " id="resultado_dieta"></div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $("form").submit(function (e) {
+              e.preventDefault(); // Evitar el envío del formulario
+
+              // Obtener los datos del formulario
+              var formData = $(this).serialize();
+
+              // Realizar la solicitud AJAX
+              $.ajax({
+                type: "POST",
+                url: "dieta_db.php",
+                data: formData,
+                success: function (response) {
+                  $("#resultado_dieta").html(response); // Mostrar el resultado en el contenedor
+                }
+              });
+            });
+          });
+        </script>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="https://www.divinacocina.es/tabla-de-calorias/">
+          TABLA DE CALORIAS
+        </a>
+      </div>
+    </section>
+
+
+    <!------------------------------------------------------------------->
+    <!-- end RECETAS SALUDABLES Y SOSTENIBLES -->
+    <!--------------------------------------------------------------->
+
+
+    <!-- download section -->
+
+    <section class="download_section layout_padding-bottom">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Download Anytime, Anywhere
+          </h2>
+        </div>
+        <div class="layout_padding2-top">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/cloud-download.png" alt="" />
+                  </div>
+                  <h6>
+                    Download The App
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Enhance your sports experience in Bilbao with Bilbao SportAir!
+                    Download our mobile app now and sign up to receive real-time notifications about environmental
+                    conditions along the riverbank.
+                    Prioritize your safety and well-being! 🏃‍♀️🚴‍♂️ #BilbaoSportAir #SafeSport
+                  </p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/playstore.png" alt="" />
+                  </div>
+                  <h6>
+                    Integration with Wearable Devices
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Seamless integration with wearable devices! Bilbao SportAir connects with fitness trackers and
+                    smartwatches,
+                    offering users direct access to environmental data. Stay updated effortlessly during your
+                    activities.
+                    🌐🏃‍♂️ #WearableIntegration
+                  </p>
+                </div>
+              </div>
+              <div>
+                <a href="" class="btn-1">
+                  Read More
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="main-img-box">
+                <img src="../images/img2.png" alt="" />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/heart.png" alt="" />
+                  </div>
+                  <h6>
+                    Community health
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Prioritize community health with Bilbao SportAir! Stay informed about environmental conditions along
+                    the riverbank.
+                    Join us in fostering a healthier community! 🌍🏞️ #BilbaoSportAir #CommunityHealth
+                  </p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="head-box">
+                  <div class="img-box">
+                    <img src="../images/trophy_.png" alt="" />
+                  </div>
+                  <h6>
+                    Emergency Response Preparedness
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  <p>
+                    Enhance safety with Bilbao SportAir! In emergencies like extreme weather or environmental hazards,
+                    receive timely alerts for quick action. Proactive measures ensure the safety of athletes and the
+                    community. 🚨🆘 #BilbaoSportAir #EmergencySafety
+                  </p>
+                </div>
+              </div>
+              <div>
+                <a href="" class="btn-2">
+                  Download Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end download section -->
+
+    <!-- SECCIÓN ABOUT AS-->
+    <section class="about_section layout_padding">
+      <div class="container">
+        <div class="heading_container d-flex justify-content-lg-start">
+          <h2>
+            About Us
+          </h2>
+        </div>
+        <div class="layout_padding2-top">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="detail-box b-1">
+                <p>
+                  Este proyecto se centra en el diseño e implementación de una Aplicación Web que permite a los usuarios
+                  registrar y
+                  visualizar en tiempo real datos sobre la calidad del aire, temperatura,
+                  presión atmosférica y humedad a través de un dispositivo IoT situado en una ubicación específica.
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="detail-box b-2">
+                <p>
+                  dirigido a una amplia gama de audiencias, incluyendo deportistas, residentes locales, investigadores
+                  ambientales y cualquier persona preocupada por su salud y el medio ambiente. Proporciona datos
+                  valiosos y
+                  herramientas para tomar decisiones informadas y promover estilos de vida saludables y sostenibles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end about section -->
+
+    <!-- subscribe section -->
+    <section class="subscribe_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Subscribe For Updates
+          </h2>
+        </div>
+        <form action="" class="layout_padding2-top">
+          <input type="email" placeholder="Enter your email" />
+          <button>
+            subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- end subscribe section -->
+
+    <!-- client section -->
+    <section class="client_section layout_margin">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Check what people say About us!
+          </h2>
+        </div>
+        <div class="client_container layout_padding2-top">
+          <div class="client-id">
+            <div class="img-box">
+              <img src="../images/client.png" alt="" />
+            </div>
+            <div class="name">
+              <img src="../images/quote.png" alt="" />
+              <h6>
+                Sandy Delex
+              </h6>
+              <p>
+                Runner
+              </p>
+            </div>
+          </div>
+          <div class="client-detail">
+            <p>
+              Bilbao SportAir has taken my outdoor fitness experience to a whole new level. The app, with its real-time
+              data on air quality and environmental conditions,
+              has enabled me to make safer decisions during my outdoor workouts. Its user-friendly approach and
+              commitment to the community make it my essential
+              companion for an active and healthy lifestyle. If you're looking for an app that makes a difference,
+              Bilbao SportAir is the perfect choice! 🏃‍♀️🌿 #BilbaoSportAir #ActiveLiving
+            </p>
+          </div>
+          <div class="d-flex justify-content-end">
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end client section -->
+
+
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+      <div class="container">
+        <div class="d-flex ">
+          <h2>
+            Contact Us
+          </h2>
+        </div>
+        <style>
+          #mostrarFormulario {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+
+          /* Estilo del botón al pasar el cursor */
+          #mostrarFormulario:hover {
+            background-color: #0056b3;
+          }
+
+          /* Estilo del formulario */
+          #contacto {
+            display: none;
+            /* Inicialmente oculto */
+          }
+
+          .contact_form-container {
+            margin-top: 20px;
+          }
+
+          .contact_form-container input,
+          .contact_form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+
+          .contact_form-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+
+          .contact_form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+          }
+        </style>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Botón para mostrar el formulario de contacto -->
+            <button id="mostrarFormulario">Contactar</button>
+
+            <!-- Formulario de contacto (inicialmente oculto) -->
+            <div id="contacto">
+              <form action="">
+                <div class="contact_form-container">
+                  <div>
+                    <div>
+                      <input type="email_origen" placeholder="De:">
+                    </div>
+                    <div>
+                      <input type="email_destino" placeholder="Para:">
+                    </div>
+                    <div class="mt-5">
+                      <input type="text" placeholder="Texto">
+                    </div>
+                    <div class="mt-5">
+                      <button type="submit">ENVIAR</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="contact_img-box">
+              <img src="../images/img3.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.getElementById('mostrarFormulario').addEventListener('click', function () {
+            document.getElementById('contacto').style.display = 'block'; // Mostrar el formulario al hacer clic en el botón
+            this.style.display = 'none'; // Ocultar el botón después de mostrar el formulario
+          });
+        </script>
+    </section>
+
+    <!-- info section -->
+    <section class="info_section layout_padding-top">
+      <div class="info_logo-box">
+        <h2>
+          IoTActiveLife
+        </h2>
+      </div>
+      <div class="container layout_padding2">
+        <div class="row">
+          <div class="col-md-3">
+            <h5>
+              Sobre nosotros
+            </h5>
+            <p>
+              IoTActiveLife: Tu seguridad, nuestra prioridad. Información en tiempo real para una
+              comunidad más
+              saludable.
+          </div>
+          <div class="col-md-3">
+            <h5>
+              Usar el link
+            </h5>
+            <ul>
+              <li>
+                <a href="https://www.apple.com/app-store/ ">
+                  App Store
+                </a>
+              </li>
+              <li>
+                <a href="https://play.google.com/store/games?hl=en&gl=US ">
+                  Play Store
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>
+              Contactar con nosotros
+            </h5>
+            <p>
+              ¡Conéctate con IoT Active! ¿Tienes preguntas o comentarios? Contáctanos en
+              maitane.garcia02@opendeusto.es.
+              ¡Tu opinión es importante!
+            </p>
+          </div>
+          <div class="col-md-3">
+
+            <div class="subscribe_container">
+              <h5>
+                Boletín informativo
+              </h5>
+              <div class="form_container">
+                <form action="">
+                  <input type="email" placeholder="Meter el email">
+                  <button type="submit">
+                    Subscribirse
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="social_container">
+
+          <div class="social-box">
+            <a href="">
+              <img src="../images/fb.png" alt="">
+            </a>
+
+            <a href="">
+              <img src="../images/twitter.png" alt="">
+            </a>
+            <a href="">
+              <img src="../images/linkedin.png" alt="">
+            </a>
+            <a href="">
+              <img src="../images/instagram.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end info section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+    </section>
+    <!-- footer section -->
+
+    <!-- footer section -->
+
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!--LOGIN AND RESGITRO JS-->
+    <script type="text/javascript" src="../js/script.js"></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("myNav").classList.toggle("menu_width");
+        document
+          .querySelector(".custom_menu-btn")
+          .classList.toggle("menu_btn-style");
+      }
+    </script>
+
+
+  </div>
+</body>
+
+>>>>>>> 09a89df851a0aa9aaea4ac96a8a97e744e91a87e
+</html>
